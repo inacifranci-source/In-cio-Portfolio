@@ -1,0 +1,246 @@
+/* ─── Section ───────────
+─────────────────────────────── */
+ @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --main-bg: #090d1a;
+  --secondary-bg: #0d1526;
+  --card-bg: #111827;
+
+  --main-color: #2563eb;
+  --main-color-hover: #3b82f6;
+  --main-color-glow: rgba(37, 99, 235, 0.25);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+
+  --border-color: rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(37, 99, 235, 0.4);
+
+  --nav-bg: rgba(9, 13, 26, 0.85);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --container-max: 1200px;
+  --container-padding: 0 24px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.15);
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.4);
+
+  --transition: 0.25s ease;
+}
+
+
+
+.projects {
+  padding: 100px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+.projects__header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.projects__label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.projects__title {
+  font-family: 'Inter', sans-serif;;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.projects__more {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.projects__more p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.projects__more a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.projects__more a:hover {
+  color: var(--main-color-hover);
+}
+
+.projects__sub {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ─── Grid ───────────────────────────────────────────── */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.projects__card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.projects__card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Screenshot */
+.projects__card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.projects__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.projects__card:hover .projects__card-img img {
+  transform: scale(1.03);
+}
+
+.projects__card-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.projects__card-placeholder span {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Body */
+.projects__card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projects__card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.projects__card-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tags */
+.projects__card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projects__tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.projects__tag:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+/* Button */
+.projects__card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 9px 20px;
+  text-decoration: none;
+  width: fit-content;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.projects__card-btn:hover {
+  border-color: var(--border-accent);
+  background: rgba(37, 99, 235, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}
