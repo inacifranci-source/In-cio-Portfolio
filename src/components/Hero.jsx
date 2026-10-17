@@ -1,7 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import '../styles/Hero.css';
 
-import inacio2 from "../assets/inacio3.jpg";
+import inacio2 from "../assets/inacio2.jpg";
 
 export default function Hero() {
   return (
@@ -14,12 +14,10 @@ export default function Hero() {
           <span className="hero__title-light">Hi! I'm Inácio, building</span>
           <TypeAnimation
             sequence={[
-              "Digital Experiences.", 1500,
-              "Modern Interfaces.",   1500,
-              "Scalable Systems.",    1500,
+              "Digital Experiences.", 1500
             ]}
             speed={50}
-            deletionSpeed={40}
+            deletionSpeed={10}
             repeat={Infinity}
             className="hero__title-bold"
           />
@@ -36,7 +34,7 @@ export default function Hero() {
 
       <div className="hero__right">
          <div className="hero__photo">
-          <img src={inacio2} alt="" />
+          <img src="" alt="" />
         </div>
 
         <div className="hero__card hero__card--1m">
