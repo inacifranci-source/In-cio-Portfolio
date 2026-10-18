@@ -1,41 +1,84 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import '../styles/header.css';
+import { useState } from "react";
+import { Menu, X, Palette, Languages } from "lucide-react";
+import "../styles/header.css";
+
+const LINKS = [
+  { label: "PROJECTS", href: "#projects" },
+  { label: "SERVICES", href: "#services" },
+  { label: "ABOUT", href: "#about" },
+];
+
+// Os dois botões num só sítio, para usar na barra (desktop) e no menu (telemóvel)
+function HeaderActions({ className }) {
+  return (
+    <div className={`header__actions ${className}`}>
+      <button
+        type="button"
+        className="header__action header__action--icon"
+        aria-label="Change theme"
+        title="Change theme"
+      >
+        <Palette size={18} />
+      </button>
+
+      <button
+        type="button"
+        className="header__action"
+        aria-label="Change language"
+        title="Change language"
+      >
+        <Languages size={18} />
+        <span>PT</span>
+      </button>
+    </div>
+  );
+}
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
     <>
       <header className="header">
-        <div className="header__logo">Inácio Francisco</div>
+        <a href="#" className="header__logo">Inácio Francisco</a>
 
-        <ul className={`header__links ${open ? 'header__links--open' : ''}`}>
-          <li><a href="#" onClick={() => setOpen(false)}>PROJECTS</a></li>
-          <li><a href="#" onClick={() => setOpen(false)}>SERVICES</a></li>
-          <li><a href="#" onClick={() => setOpen(false)}>TESTIMONIALS</a></li>
-          <li><a href="#" onClick={() => setOpen(false)}>FAQS</a></li>
-           <li><button className="header__btn--mobile" onClick={() => setOpen(false)}>Book a call</button></li>
+        <ul
+          id="main-menu"
+          className={`header__links ${open ? "header__links--open" : ""}`}
+        >
+          {LINKS.map((l) => (
+            <li key={l.label}>
+              <a href={l.href} onClick={close}>{l.label}</a>
+            </li>
+          ))}
+
+          {/* só aparece no telemóvel, dentro do menu */}
+          <li className="header__menu-actions">
+            <HeaderActions className="header__actions--menu" />
+          </li>
         </ul>
 
-        <button className="header__btn">Book a call</button>
+        {/* só aparece no desktop, na barra */}
+        <HeaderActions className="header__actions--bar" />
 
         <button
           className="header__hamburger"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="main-menu"
         >
-          <span className={`header__icon ${open ? 'header__icon--hidden' : 'header__icon--visible'}`}>
+          <span className={`header__icon ${open ? "header__icon--hidden" : "header__icon--visible"}`}>
             <Menu size={22} color="#fff" />
           </span>
-          <span className={`header__icon ${open ? 'header__icon--visible' : 'header__icon--hidden'}`}>
+          <span className={`header__icon ${open ? "header__icon--visible" : "header__icon--hidden"}`}>
             <X size={22} color="#fff" />
           </span>
         </button>
       </header>
 
-      {/* overlay para fechar ao clicar fora */}
-      {open && <div className="header__overlay" onClick={() => setOpen(false)} />}
+      {open && <div className="header__overlay" onClick={close} />}
     </>
   );
 }

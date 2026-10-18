@@ -1,22 +1,11 @@
 .hero {
   position: relative;
-  height: calc(100vh - 90px);
+  min-height: max(600px, calc(100vh - 90px));
   display: flex;
   align-items: center;
   padding: 0 70px;
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-family: var(--font-body);
 }
 
 .hero__blob-main {
@@ -65,6 +54,7 @@
   font-style: italic;
   color: #fff;
   line-height: 1.1;
+  min-height: 1.1em; /* evita saltos quando a frase muda */
   margin-bottom: 22px;
 }
 
@@ -73,7 +63,7 @@
   animation: fadeUp 0.6s 0.3s ease both;
   color: rgba(255,255,255,0.5);
   line-height: 1.7;
-  margin-bottom: 38px;
+  margin: 0 0 38px;
   max-width: 350px;
 }
 
@@ -83,31 +73,27 @@
   gap: 14px;
 }
 
-.hero__btn-connect {
-  background: #2563eb;
+.hero__btn-connect,
+.hero__btn-work {
+  display: inline-block;
   color: #fff;
   border: none;
   border-radius: 50px;
   padding: 13px 30px;
   font-size: 14px;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
   transition: background 0.2s;
+}
+
+.hero__btn-connect {
+  background: var(--main-color);
 }
 .hero__btn-connect:hover { background: #1d4ed8; }
 
 .hero__btn-work {
   background: rgba(255,255,255,0.1);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 13px 30px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: background 0.2s;
 }
 .hero__btn-work:hover { background: rgba(255,255,255,0.16); }
 
@@ -136,6 +122,13 @@
   justify-content: center;
 }
 
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 .hero__card {
   position: absolute;
   background-color: rgba(253, 242, 242, 0.233);
@@ -160,16 +153,33 @@
 }
 
 .hero__card--1m  { top: 55px;    left: 6rem; }
-.hero__card--500 { top: 20px;    right: 0px; }
+.hero__card--500 { top: 20px;    right: 0; }
 .hero__card--140 { bottom: 85px; left: 20px; }
-.hero__card--10  { bottom: 30px; right: 0px; }
+.hero__card--10  { bottom: 30px; right: 0; }
 
-/* ─── Responsive ─────────────────────────────────────── */
-/* ─── Responsive ─────────────────────────────────────── */
-@media (max-width: 768px) {
-
+/* ─── Portátil pequeno / tablet largo: reduz o bloco da direita ─── */
+@media (min-width: 961px) and (max-width: 1150px) {
   .hero {
-    height: auto;
+    padding: 0 40px;
+  }
+
+  .hero__left {
+    max-width: 420px;
+  }
+
+  .hero__title-light { font-size: 36px; }
+  .hero__title-bold  { font-size: 40px; }
+
+  .hero__right {
+    right: 20px;
+    transform: translateY(-50%) scale(0.8);
+    transform-origin: right center;
+  }
+}
+
+/* ─── Tablet e telemóvel: layout em coluna ─── */
+@media (max-width: 960px) {
+  .hero {
     min-height: calc(100vh - 70px);
     flex-direction: column;
     align-items: center;
@@ -194,7 +204,6 @@
     height: 280px;
   }
 
-  /* foto vem primeiro — empurra para cima via order */
   .hero__left {
     order: 2;
     max-width: 100%;
@@ -203,13 +212,8 @@
     align-items: center;
   }
 
-  .hero__title-light {
-    font-size: 28px;
-  }
-
-  .hero__title-bold {
-    font-size: 32px;
-  }
+  .hero__title-light { font-size: 28px; }
+  .hero__title-bold  { font-size: 32px; }
 
   .hero__sub {
     font-size: 14px;
@@ -229,6 +233,7 @@
     top: unset;
     transform: none;
     width: 100%;
+    max-width: 520px;
     height: 380px;
   }
 
@@ -244,16 +249,11 @@
     padding: 12px 16px;
   }
 
-  .hero__card-num {
-    font-size: 26px;
-  }
+  .hero__card-num { font-size: 26px; }
+  .hero__card-lbl { font-size: 11px; }
 
-  .hero__card-lbl {
-    font-size: 11px;
-  }
-
-  .hero__card--1m  { top: 10px;    left: 0px;  }
-  .hero__card--500 { top: 10px;    right: 0px; }
-  .hero__card--140 { bottom: 10px; left: 0px;  }
-  .hero__card--10  { bottom: 10px; right: 0px; }
+  .hero__card--1m  { top: 10px;    left: 0; }
+  .hero__card--500 { top: 10px;    right: 0; }
+  .hero__card--140 { bottom: 10px; left: 0; }
+  .hero__card--10  { bottom: 10px; right: 0; }
 }

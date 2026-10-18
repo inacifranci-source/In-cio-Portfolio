@@ -1,14 +1,18 @@
-const SKILLS = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git", "GitHub", "Figma",];
+import "../styles/Marquee.css";
 
-import '../styles/Marquee.css';
+const SKILLS = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git", "GitHub", "Figma"];
+const REPEAT = 4; // se mudares, atualiza o -25% no Marquee.css (100 / REPEAT)
 
 export default function Marquee() {
+  const items = Array.from({ length: REPEAT }, () => SKILLS).flat();
+
   return (
     <div className="marquee">
-      <div className="marquee__track">
-        {/* duplicas para o loop ser infinito e sem corte */}
-        {[...SKILLS, ...SKILLS].map((skill, i) => (
-          <span key={i} className="marquee__item">
+      <span className="sr-only">Skills: {SKILLS.join(", ")}</span>
+
+      <div className="marquee__track" aria-hidden="true">
+        {items.map((skill, i) => (
+          <span key={`${skill}-${i}`} className="marquee__item">
             {skill} <span className="marquee__dot">•</span>
           </span>
         ))}

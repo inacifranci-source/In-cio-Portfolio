@@ -1,0 +1,207 @@
+.contact {
+  padding: 100px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  scroll-margin-top: 110px; /* o header sticky não esconde o título */
+}
+
+.contact__header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.contact__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.contact__sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 460px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ─── Cartões de contacto ─── */
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  color: var(--main-color);
+  text-decoration: none;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+a.contact__card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+.contact__card div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.contact__card-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.contact__card-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+/* ─── Formulário ─── */
+.contact__form {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact__field span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.contact__field input,
+.contact__field textarea {
+  width: 100%;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  resize: vertical;
+  transition: border-color var(--transition);
+}
+
+.contact__field input::placeholder,
+.contact__field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact__field input:focus,
+.contact__field textarea:focus {
+  outline: none;
+  border-color: var(--main-color);
+}
+
+.contact__field input:disabled,
+.contact__field textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* campo anti-spam: fora do ecrã, invisível para pessoas */
+.contact__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.contact__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 13px 28px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.contact__submit:hover:not(:disabled) {
+  background: var(--main-color-hover);
+  box-shadow: 0 0 24px var(--main-color-glow);
+}
+
+.contact__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ─── Mensagem de estado ─── */
+.contact__status {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.contact__status--success {
+  color: #22c55e;
+}
+
+.contact__status--error {
+  color: #f87171;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__form {
+    padding: 22px;
+  }
+}

@@ -34,9 +34,7 @@ export default function Services() {
         <span className="services__label">SERVICES</span>
         <h2 className="services__title">What I Do</h2>
         <p className="services__sub">
-          From interfaces to full stack, I build modern products
-          that are scalable and user-friendly.
-        </p>
+           From responsive interfaces to API integrations, I build modern websites that are fast and user-friendly.</p>
       </div>
 
       <div className="services__grid">
