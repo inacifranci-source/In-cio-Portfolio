@@ -2,9 +2,11 @@
   padding: 100px 24px;
   max-width: 1200px;
   margin: 0 auto;
-  scroll-margin-top: 110px; /* o header sticky não esconde o título */
+  scroll-margin-top: 110px;
+  font-family: 'Inter', sans-serif;
 }
 
+/* ─── Cabeçalho ─── */
 .contact__header {
   text-align: center;
   margin-bottom: 60px;
@@ -38,9 +40,10 @@
   margin: 0;
 }
 
+/* ─── Grelha ─── */
 .contact__grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: 24px;
   align-items: start;
 }
@@ -98,6 +101,8 @@ a.contact__card:hover {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .contact__field {
@@ -115,6 +120,7 @@ a.contact__card:hover {
 .contact__field input,
 .contact__field textarea {
   width: 100%;
+  box-sizing: border-box;
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -137,26 +143,14 @@ a.contact__card:hover {
   border-color: var(--main-color);
 }
 
-.contact__field input:disabled,
-.contact__field textarea:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* campo anti-spam: fora do ecrã, invisível para pessoas */
-.contact__honeypot {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-}
-
+/* ─── Botão ─── */
 .contact__submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
   background: var(--main-color);
   color: #fff;
   border: none;
@@ -169,36 +163,15 @@ a.contact__card:hover {
   transition: background var(--transition), box-shadow var(--transition);
 }
 
-.contact__submit:hover:not(:disabled) {
+.contact__submit:hover {
   background: var(--main-color-hover);
   box-shadow: 0 0 24px var(--main-color-glow);
-}
-
-.contact__submit:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* ─── Mensagem de estado ─── */
-.contact__status {
-  margin: 0;
-  min-height: 1.2em;
-  font-size: 0.85rem;
-  line-height: 1.5;
-}
-
-.contact__status--success {
-  color: #22c55e;
-}
-
-.contact__status--error {
-  color: #f87171;
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .contact__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contact__form {

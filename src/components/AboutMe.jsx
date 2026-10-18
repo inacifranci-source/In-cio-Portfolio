@@ -21,15 +21,16 @@ const TECH_STACK = [
 ];
 
 const EXPERIENCE = [
-  { role: "Freelancer", company: "Self-employed", year: "2023 — now" },
+  { role: "Freelancer", company: "Self-employed", year: "2025 — now" },
 ];
 
 // Adiciona aqui os teus outros perfis quando tiveres os links reais, por exemplo:
 // { label: "LinkedIn", icon: "in", href: "https://linkedin.com/in/..." },
 const SOCIALS = [
   { label: "GitHub", icon: "GH", href: "https://github.com/inacifranci-source" },
+  { label: "LinkedIn", icon: "in", href: "https://www.linkedin.com/in/in%C3%A1cio-francisco-b86ba935b/" },
+  { label: "Instagram", icon: "IG", href: "https://www.instagram.com/dev.inacio/" },
 ];
-
 export default function AboutMe() {
   return (
     <section className="about" id="about">

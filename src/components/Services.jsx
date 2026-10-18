@@ -25,6 +25,14 @@ const SERVICES = [
       "Seamless integration between front-end and back-end services. REST APIs, authentication flows and real-time data handled with care.",
     topics: ["REST APIs", "Axios", "Authentication", "Real-time"],
   },
+    {
+    id: 4,
+    icon: "{ }",
+    title: "Backend Development",
+    description:
+      "Server-side logic and REST APIs that power your applications. Well-structured endpoints, database integration and CRUD operations built to be reliable and easy to maintain.",
+    topics: ["Node.js", "REST APIs", "prismaORM", "postgreSQL"],
+  },
 ];
 
 export default function Services() {

@@ -1,6 +1,9 @@
 import "../styles/Projects.css";
 import tfa from "../assets/tfa-cover.png";
 import linkQR from "../assets/linkqr-cover.png";
+import argentina from "../assets/argentina.png"
+import apicapa from "../assets/apicapa.png"
+
 
 const PROJECTS = [
   {
@@ -20,6 +23,23 @@ const PROJECTS = [
     tags: ["API consumption", "JS", "React.js", "TailwindCSS"],
     image: linkQR,
     link: "https://link-qr-lemon.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Argentina Fernandes",
+    description:
+      "Portfolio website for Argentina Fernandes, a beauty entrepreneur specialized in eyebrow design. It showcases her services, work and contact details in one elegant, responsive page that helps clients book with confidence.",
+    tags: ["React.js", "HTML", "CSS", "JS"],
+    image: argentina, 
+    link: "https://argentinafernandes.vercel.app/",
+  },
+    {
+    id: 4,
+    title: "Entrepreneurship Fair API",
+    description:
+      "Registration API built by a team for an entrepreneurship fair. I was responsible for the CRUD operations: creating, reading, updating and deleting participant registrations.",
+    tags: ["Node.js", "REST API", "CRUD", "PostgreSQL"],
+    image: apicapa,
   },
 ];
 

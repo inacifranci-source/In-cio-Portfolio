@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
   --page-bg: #000;
@@ -17,8 +17,8 @@
   --border-color: rgba(255, 255, 255, 0.07);
   --border-accent: rgba(37, 99, 235, 0.4);
 
-  --font-display: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -33,6 +33,14 @@
 
 body {
   background-color: var(--page-bg);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Campos e botões não herdam a fonte por defeito */
+button,
+input,
+textarea {
+  font-family: inherit;
 }
 
 @keyframes fadeUp {
@@ -44,10 +52,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-button,
-input,
-textarea {
-  font-family: inherit;
 }
